@@ -1,0 +1,26 @@
+{
+  "name": "@dn/storybook",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@dn/tokens": "*",
+    "@dn/components": "*",
+    "@dn/journeys": "*",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-native-web": "~0.19.13"
+  },
+  "devDependencies": {
+    "@storybook/react": "^8.6.0",
+    "@storybook/react-vite": "^8.6.0",
+    "@storybook/addon-essentials": "^8.6.0",
+    "storybook": "^8.6.0",
+    "vite": "^6.1.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "typescript": "^5.1.3"
+  }
+}

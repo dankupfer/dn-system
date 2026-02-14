@@ -1,0 +1,13 @@
+{
+    "name": "dn-monorepo",
+    "private": true,
+    "workspaces": [
+        "packages/*",
+        "apps/*"
+    ],
+    "scripts": {
+        "visualiser": "npm run start -w apps/visualiser",
+        "storybook": "npm run storybook -w apps/storybook",
+        "typecheck": "tsc --build"
+    }
+}
