@@ -138,7 +138,11 @@ export function getTypographyToken(
     if (!token || token.type !== 'typography') return null;
     const value = token.values[brand];
     if (typeof value === 'string') return null;
-    return value as TypographyValue;
+    const typo = value as TypographyValue;
+    return {
+        ...typo,
+        font_family: normaliseFontFamily(typo.font_family, String(typo.font_weight || '')),
+    };
 }
 
 export function getShadowToken(
