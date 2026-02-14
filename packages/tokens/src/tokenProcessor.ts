@@ -164,6 +164,24 @@ export function getNumericToken(
     return parseInt(value, 10) || 0;
 }
 
+export function normaliseFontFamily(family: string, weight?: string): string {
+    const w = (weight || '').toLowerCase();
+    const isBold = w === 'bold' || w === 'black' || w === '700' || w === '900';
+    const key = family + (isBold ? ' Bold' : '');
+
+    const fontMap: Record<string, string> = {
+        'GT Ultra': 'GT-Ultra-Standard-Regular',
+        'GT Ultra Bold': 'GT-Ultra-Standard-Bold',
+        'GT Ultra Median': 'GT-Ultra-Median-Regular',
+        'GT Ultra Median Bold': 'GT-Ultra-Median-Bold',
+        'GT Ultra Median Lloyds': 'GT-Ultra-Median-Regular',
+        'GT Ultra Median Lloyds Bold': 'GT-Ultra-Median-Bold',
+        'GT Ultra VF': 'GT-Ultra-Standard-Regular',
+        'GT Ultra VF Bold': 'GT-Ultra-Standard-Bold',
+    };
+    return fontMap[key] || family;
+}
+
 export function processTokens(
     tokens: Token[],
     brand: BrandName,
@@ -210,7 +228,10 @@ export function processTokens(
             heading: getNum('style_1'),
             body: {
                 fontSize: getNum('style_3'),
-                fontFamily: getTypographyToken('style_3', brand, themeMode, tokens)?.font_family || 'System',
+                fontFamily: normaliseFontFamily(
+                    getTypographyToken('style_3', brand, themeMode, tokens)?.font_family || 'System',
+                    String(getTypographyToken('style_3', brand, themeMode, tokens)?.font_weight || '')
+                ),
             },
             small: getNum('style_5'),
         },
