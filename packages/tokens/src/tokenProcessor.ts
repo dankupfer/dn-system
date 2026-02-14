@@ -21,13 +21,14 @@ export type ThemeMode = 'light' | 'dark';
 
 export interface TypographyValue {
     font_family: string;
-    default_font_size: string;
-    max_font_size: string;
-    font_weight: string;
-    line_height: string;
-    line_spacing: string;
-    letter_spacing: string;
+    default_font_size: string | number;
+    max_font_size: string | number;
+    font_weight: string | number;
+    line_height: string | number;
+    line_spacing: string | number;
+    letter_spacing: string | number;
     ios_classification: string;
+    [key: string]: string | number | undefined;
 }
 
 export interface ShadowValue {
@@ -39,9 +40,9 @@ export interface ShadowValue {
 export interface Token {
     name: string;
     type: 'color' | 'spacing' | 'borderRadius' | 'borderWidth' | 'typography' | 'shadow';
-    description?: string;
+    description?: string | null;
     values: {
-        [brandKey: string]: string | TypographyValue | ShadowValue;
+        [brandKey: string]: string | TypographyValue | ShadowValue | undefined;
     };
 }
 
@@ -119,7 +120,7 @@ export function getToken(
         if (token.type === 'color' && !value.startsWith('#')) return '#' + value;
         return value;
     }
-    if (token.type === 'typography') return (value as TypographyValue).default_font_size;
+    if (token.type === 'typography') return String((value as TypographyValue).default_font_size);
     if (token.type === 'shadow') {
         const s = value as ShadowValue;
         return s.x + 'px ' + s.y + 'px ' + s.blur + 'px rgba(0,0,0,0.1)';
