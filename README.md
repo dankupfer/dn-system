@@ -10,6 +10,30 @@ This monorepo provides a working foundation for a multi-brand design system with
 - **Storybook app** (Vite bundler) for component documentation and testing
 - **Multi-brand theming** with light/dark mode support
 
+## Version Reference
+
+| Tool/Package | Version | Notes |
+|---|---|---|
+| Node.js | 20+ | Tested on 24, any LTS 20+ works |
+| npm | 10+ | Workspace support required |
+| Expo SDK | 52 (~52.0.46) | Stable. Upgrade to 54 separately later |
+| React | 18.3.1 | |
+| React Native | 0.76.9 | |
+| react-native-web | ~0.19.13 | |
+| Storybook | 8.6+ | @storybook/react-vite (not Webpack) |
+| Vite | 6.1+ | Used only by Storybook |
+| TypeScript | 5.1+ | |
+| Metro | via Expo SDK 52 | Used only by Visualiser |
+```
+
+Then let's commit everything:
+```
+git add -A && git commit -m 'docs: add version reference, migration guide, and expo packages guide
+
+- README.md updated with version reference table
+- docs/MIGRATION_GUIDE.md for reproducing monorepo on corporate device
+- docs/EXPO_PACKAGES_GUIDE.md for managing expo-specific dependencies'
+
 ## Project Structure
 
 ```
