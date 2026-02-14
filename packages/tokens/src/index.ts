@@ -14,6 +14,8 @@ export {
   type ShadowValue
 } from './tokenProcessor';
 
+import type { Token } from './tokenProcessor';
+
 export const fontFamilies = {
   primary: 'GT-Ultra-Median-Regular',
   primaryBold: 'GT-Ultra-Median-Bold',
@@ -31,8 +33,10 @@ import iconData from '../tokens/icons.json';
 export const tokens = tokenData;
 export const icons = iconData;
 
-export function getAllTokens() {
-  return tokens;
+// JSON imports are inferred with broad types (string instead of union literals,
+// null instead of undefined). Cast once here so all consumers get clean Token[] type.
+export function getAllTokens(): Token[] {
+  return tokens as unknown as Token[];
 }
 
 export function getAllIcons() {
