@@ -8,6 +8,8 @@ export default defineConfig({
   resolve: {
     alias: {
       'react-native': 'react-native-web',
+      'react-native-svg': 'react-native-svg-web',
+      'expo-linear-gradient': path.resolve(__dirname, 'src/mocks/expo-linear-gradient.ts')
     },
     extensions: ['.web.tsx', '.web.ts', '.tsx', '.ts', '.web.js', '.js'],
   },
