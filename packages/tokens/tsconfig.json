@@ -1,8 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "composite": true,
     "outDir": "dist",
-    "rootDir": "."
+    "rootDir": ".",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "resolveJsonModule": true
   },
-  "include": ["src", "tokens"]
+  "include": ["src", "tokens/**/*.json", "assets.d.ts"],
+  "exclude": ["**/*.stories.tsx"]
 }

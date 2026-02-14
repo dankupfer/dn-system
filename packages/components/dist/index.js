@@ -1,6 +1,4 @@
 // packages/components/src/index.ts
 export { ThemeProvider, useTheme } from './ThemeProvider';
 export { ActionButton } from './ActionButton';
-
-// Re-export commonly needed types from tokens
-export type { ProcessedTheme, BrandName, ThemeMode } from '@dn/tokens';
+//# sourceMappingURL=index.js.map

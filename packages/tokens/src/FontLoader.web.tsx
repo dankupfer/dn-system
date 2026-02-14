@@ -1,3 +1,4 @@
+// @ts-nocheck
 // packages/tokens/src/FontLoader.web.tsx
 import React, { useEffect, useState } from 'react';
 

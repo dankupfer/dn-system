@@ -115,7 +115,10 @@ export function getToken(
         console.warn('Token value not found: ' + tokenName + ' for ' + brand);
         return '#FF0000';
     }
-    if (typeof value === 'string') return value;
+    if (typeof value === 'string') {
+        if (token.type === 'color' && !value.startsWith('#')) return '#' + value;
+        return value;
+    }
     if (token.type === 'typography') return (value as TypographyValue).default_font_size;
     if (token.type === 'shadow') {
         const s = value as ShadowValue;

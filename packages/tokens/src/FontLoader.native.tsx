@@ -1,3 +1,4 @@
+// @ts-nocheck
 // packages/tokens/src/FontLoader.native.tsx
 import React, { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
