@@ -5,12 +5,16 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  define: {
+    __DEV__: true,
+  },
   resolve: {
     alias: {
       'react-native': 'react-native-web',
       'react-native-svg': 'react-native-svg-web',
       'expo-linear-gradient': path.resolve(__dirname, 'src/mocks/expo-linear-gradient.ts'),
       'expo-av': path.resolve(__dirname, 'src/mocks/expo-av.ts'),
+      '@react-native-async-storage/async-storage': path.resolve(__dirname, 'src/mocks/async-storage.ts'),
     },
     extensions: ['.web.tsx', '.web.ts', '.tsx', '.ts', '.web.js', '.js'],
   },
