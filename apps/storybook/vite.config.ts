@@ -15,6 +15,7 @@ export default defineConfig({
       'expo-linear-gradient': path.resolve(__dirname, 'src/mocks/expo-linear-gradient.ts'),
       'expo-av': path.resolve(__dirname, 'src/mocks/expo-av.ts'),
       '@react-native-async-storage/async-storage': path.resolve(__dirname, 'src/mocks/async-storage.ts'),
+      'react-native-safe-area-context': path.resolve(__dirname, 'src/mocks/safe-area-context.ts'),
     },
     extensions: ['.web.tsx', '.web.ts', '.tsx', '.ts', '.web.js', '.js'],
   },
